@@ -66,6 +66,9 @@ public class TCPKioskClientApplication {
 
 				//transaction details	
 			}
+			
+			
+			
 			} catch (InterruptedException | IOException | ClassNotFoundException e) {
 				kioskFrame.release();
 				e.printStackTrace();
