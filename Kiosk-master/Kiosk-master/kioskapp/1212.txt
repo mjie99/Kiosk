@@ -1,0 +1,24 @@
+-------------------------------------------------------
+          	Your Order Reference No is
+
+		     			9
+-------------------------------------------------------
+    	Welcome to Mc Daniel's Malacca Restaurant
+               	EmmaSoft Solution
+    	4570 Lebuh Ayer Keroh Taman Buaya Melaka
+                	75450 Melaka
+              	TEL :  0123456789
+                	TAX INVOICE
+
+Order ID : 12
+Time	 : 2021-04-18
+Take Away
+
+QTY  ITEM                                    PRICE               
+1    Ayam Goreng McD Spicy (2pcs)            RM  11.90
+100  Ayam Goreng McD Spicy (5pcs)            RM 3020.00
+                                       Total RM 3031.90
+Credit Card No:**** **** **** 3456
+
+			Thank You!!Please Come Again!!!
+		Customer Service Hotline : 09 - 0948787

@@ -2,6 +2,7 @@ package tcpKioskClient;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -58,11 +59,15 @@ public class TCPKioskClientApplication {
 			{	
 				//take transaction id and order id as file name 
 				String targetSource = Integer.toString(orderTransaction.getOrderTransactionId()) + Integer.toString(orderTransaction.getOrder().getOrderId()) + ".txt";
-
+				
 				//write receipt into text file
-				FileOutputStream fileOutputStream = new FileOutputStream(targetSource);
-
-				//transaction details	
+				KioskReceipt receipt = new KioskReceipt ();
+				String receiptContent = receipt.writeReceiptContent(orderTransaction);
+				FileWriter fileWriter = new FileWriter (targetSource);
+				fileWriter.write(receiptContent);
+				fileWriter.flush();
+				fileWriter.close();
+			
 			}
 			
 			

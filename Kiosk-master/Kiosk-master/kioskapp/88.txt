@@ -1,0 +1,28 @@
+-------------------------------------------------------
+                    Your Order ID is                    
+
+		     						    	5
+--------------------------------------------------------
+          Welcome to Mc Daniel's Malacca Restaurant
+                    EmmaSoft Solution
+          4570 Lebuh Ayer Keroh Taman Buaya Melaka
+                     75450 Melaka
+                    TEL :  0123456789
+                     TAX INVOICE
+
+Order ID : 8
+Time	: 2021-04-18
+Eat In
+
+QTY  ITEM                                    PRICE               
+1    McChicken                               RM    8.10
+1    Ayam Goreng McD Spicy (5pcs)            RM   30.20
+3    Chicken McNuggets (6pcs)                RM   28.20
+3    McChicken Meal (Medium)                 RM   39.60
+1    Chicken McNuggets 6pcs Meal (Medium)    RM   13.20
+1    Filet-O-Fish Meal (Medium)              RM  130.00
+                                       Total  RM 1320.30
+Credit Card No:**** **** **** 3456
+
+            Thank You!!Please Come Again!!!
+        Customer Service Hotline : 09 - 0948787
