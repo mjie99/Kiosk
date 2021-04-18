@@ -25,9 +25,9 @@ public class TCPKioskClientApplication {
 		
 		while(true) {
 			try {
-				kioskFrame.waitForInput();
-			
 
+			kioskFrame.waitForInput();
+			
 			//connect to order server
 			Socket socket = new Socket(InetAddress.getLocalHost(),4228);
 
@@ -35,11 +35,11 @@ public class TCPKioskClientApplication {
 			ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
 
 			//get objectTransaction and credit card number from kiosk frame
-			OrderTransaction objectTransaction = kioskFrame.getOrderTransaction();
+			OrderTransaction orderTransaction = kioskFrame.getOrderTransaction();
 			String creditCardNo = kioskFrame.getCreditCardNumber();
-		
+
 			//send orderTransaction to order server
-			outputStream.writeObject(objectTransaction);
+			outputStream.writeObject(orderTransaction);
 			outputStream.writeUTF(creditCardNo);
 			outputStream.flush();
 
@@ -47,17 +47,15 @@ public class TCPKioskClientApplication {
 			//open an inputStream
 			ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
-			objectTransaction = (OrderTransaction)inputStream.readObject();
-			boolean result = objectTransaction.isTransactionStatus();
+			orderTransaction = (OrderTransaction)inputStream.readObject();
+			boolean result = orderTransaction.isTransactionStatus();
 		
 			kioskFrame.setTransactionStatus(result);
 			kioskFrame.release();
 		
+			// print receipt
 			if(result)
-			{
-				//read orderTransaction from order server
-				OrderTransaction orderTransaction = (OrderTransaction)inputStream.readObject();
-			
+			{	
 				//take transaction id and order id as file name 
 				String targetSource = Integer.toString(orderTransaction.getOrderTransactionId()) + Integer.toString(orderTransaction.getOrder().getOrderId()) + ".txt";
 

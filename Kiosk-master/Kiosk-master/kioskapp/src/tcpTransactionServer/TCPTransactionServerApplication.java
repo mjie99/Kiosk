@@ -25,6 +25,7 @@ public class TCPTransactionServerApplication {
 		TCPTransactionServerFrame frame = new TCPTransactionServerFrame();
 		frame.setVisible(true);
 		
+		OrderTransaction orderTransaction = null;
 		while(true) {
 			try {
 				
@@ -32,7 +33,7 @@ public class TCPTransactionServerApplication {
 				
 				//open an inputStream to read orderTransaction that send by order server
 				ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());
-				OrderTransaction orderTransaction =  (OrderTransaction)inputStream.readObject();
+				orderTransaction =  (OrderTransaction)inputStream.readObject();
 				String creditCardNo = inputStream.readUTF();
 				frame.updateRequestStatus(creditCardNo);
 				
@@ -43,10 +44,6 @@ public class TCPTransactionServerApplication {
 			
 				orderTransaction.setLast4Digits(Integer.parseInt
 						(creditCardNo.substring(creditCardNo.length() - 4)));
-				
-				//write transaction detail into database
-				OrderTransactionController transactionController = new OrderTransactionController ();
-				transactionController.insertTransaction(orderTransaction);
 				
 				//open an outputStream to send back transaction detail to order server
 				ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -60,14 +57,16 @@ public class TCPTransactionServerApplication {
 			} catch (InvalidCreditCardException e){
 				
 				//open an outputStream to send the error message to order server
-				ObjectOutputStream ObjectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
 				
-				//orderTransaction.setTransactionStatus(false);
-				ObjectOutputStream.flush();
+				orderTransaction.setTransactionStatus(false);
+				objectOutputStream.writeObject(orderTransaction);
+
+				objectOutputStream.flush();
 				
 				//close outputStream
-				ObjectOutputStream.close();
-			}
+				objectOutputStream.close();
+			} 
 		}
 	}
 }

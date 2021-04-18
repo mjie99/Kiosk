@@ -88,7 +88,7 @@ private static final long serialVersionUID = 1L;
 		this.setTitle("Kiosk Application");
 		this.setSize(width, height);
 		
-		cartListPanel = new JPanel(new GridLayout(10,1));
+		cartListPanel = new JPanel(new GridLayout(14,1));
 		paymentListPanel = new JPanel(new GridLayout(20,1));
 		paymentListPanel.setBackground(new Color(255, 250, 240));
 		
